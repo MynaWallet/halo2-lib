@@ -1,6 +1,6 @@
 [package]
 name = "zkevm-hashes"
-version = "0.1.4"
+version = "0.2.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
@@ -12,12 +12,13 @@ itertools = "0.11"
 lazy_static = "1.4"
 log = "0.4"
 num-bigint = { version = "0.4" }
-halo2-base = { path = "../../halo2-base", default-features = false, features = ["test-utils"] }
-serde = { version = "1.0", features = ["derive"] }
-rayon = "1.8"
+halo2-base = { path = "../../halo2-base", default-features = false, features = [
+    "test-utils",
+] }
+rayon = "1.7"
 sha3 = "0.10.8"
-# always included but without features to use Native poseidon and get CircuitExt trait
-snark-verifier-sdk = { git = "https://github.com/axiom-crypto/snark-verifier.git", branch = "release-0.1.7-rc", default-features = false }
+# always included but without features to use Native poseidon
+snark-verifier = { git = "https://github.com/axiom-crypto/snark-verifier.git", branch = "develop", default-features = false }
 getset = "0.1.2"
 
 [dev-dependencies]
@@ -31,12 +32,13 @@ rand_core = "0.6.4"
 rand_xorshift = "0.3"
 env_logger = "0.10"
 test-case = "3.1.0"
+sha2 = "0.10.7"
 
 [features]
 default = ["halo2-axiom", "display"]
-display = ["snark-verifier-sdk/display"]
-halo2-pse = ["halo2-base/halo2-pse"]
-halo2-axiom = ["halo2-base/halo2-axiom"]
+display = ["halo2-base/display", "snark-verifier/display"]
+halo2-pse = ["halo2-base/halo2-pse", "snark-verifier/halo2-pse"]
+halo2-axiom = ["halo2-base/halo2-axiom", "snark-verifier/halo2-axiom"]
 jemallocator = ["halo2-base/jemallocator"]
 mimalloc = ["halo2-base/mimalloc"]
 asm = ["halo2-base/asm"]
