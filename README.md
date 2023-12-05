@@ -289,3 +289,7 @@ cargo test --release --no-default-features --features "halo2-axiom, mimalloc" --
 - [zkevm tx-circuit](https://github.com/scroll-tech/zkevm-circuits/tree/develop/zkevm-circuits/src/tx_circuit)
 - [webauthn-halo2](https://github.com/zkwebauthn/webauthn-halo2) -- Proving and verifying WebAuthn with halo2.
 - [Fixed Point Arithmetic](https://github.com/DCMMC/halo2-scaffold/tree/main/src/gadget) -- Fixed point arithmetic library in halo2.
+
+## Citation
+The SHA256 implementation is taken from https://github.com/axiom-crypto/halo2-lib/pull/160
+Big thanks to axiom and PSE team.
